@@ -177,21 +177,6 @@ checkoutBtn.addEventListener("click", function(){
     return;
   }
 
-  //Enviar o pedido para api whats
-  const cartItems = cart.map((item) => {
-    return (
-      ` ${item.name} Quantity: (${item.quantity}) Price: $${item.price} |`
-    )
-  }).join("")
-
-  const message = encodeURIComponent(cartItems)
-  const phone = "NUMERO_DO_TELEFONE"
-
-  window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
-
-  cart = [];
-  updateCartModal();
-
 })
 
 
@@ -199,8 +184,8 @@ checkoutBtn.addEventListener("click", function(){
 function checkRestaurantOpen(){
   const data = new Date();
   const hora = data.getHours();
-  return hora >= 18 && hora < 22; 
-  //true = restaurante está aberto 
+  return hora >= 9 && hora < 18; 
+  //true = loja de musica está aberta 
 }
 
 
